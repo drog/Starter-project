@@ -53,4 +53,4 @@ UserSchema.methods.generateJWT = function() {
 };
 
 
-mongoose.model('User', UserSchema)
+mongoose.model('User', UserSchema);

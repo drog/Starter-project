@@ -2,11 +2,13 @@ var express = require('express');
 var mongoose = require('mongoose');
 var passport = require('passport');
 var jwt = require('express-jwt');
+var router = express.Router();
 
 var User = mongoose.model('User');
+var secrets = require('../config/secrets');
 
-var router = express.Router();
-var auth = jwt({secret: 'SECRET', userProperty: 'payload'});
+
+var auth = jwt({secret: secrets.sessionSecret, userProperty: 'payload'});
 
 router.post('/register', function(req, res, next){
   if(!req.body.username || !req.body.email || !req.body.password){

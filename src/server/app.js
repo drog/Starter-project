@@ -9,7 +9,8 @@ var logger = require('morgan');
 var mongoose = require('mongoose');
 var passport = require('passport');
 
-mongoose.connect('mongodb://localhost/rtm');
+var secrets = require('./config/secrets');
+mongoose.connect(secrets.db);
 
 require('./models/users');
 require('./config/passport');
@@ -21,7 +22,7 @@ var four0four = require('./utils/404')();
 
 var environment = process.env.NODE_ENV;
 
-app.use(favicon(__dirname + '/favicon.ico'));
+//app.use(favicon(__dirname + '/favicon.ico'));
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 app.use(logger('dev'));

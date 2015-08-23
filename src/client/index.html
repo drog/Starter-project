@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es" ng-app="app">
+    <head>
+        <style>
+        /* This helps the ng-show/ng-hide animations start at the right place. */
+        /* Since Angular has this but needs to load, this gives us the class early. */
+        .ng-hide { display: none!important; }
+        </style>
+        <title ng-bind="title">Starter</title>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <base href="/">
+        <link href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <!-- build:css styles/lib.css -->
+        <!-- bower:css -->
+        <link rel="stylesheet" href="/bower_components/material-design-lite/material.min.css" />
+        <!-- endbower -->
+        <!-- endbuild -->
+        <!-- build:css styles/app.css -->
+        <!-- inject:css -->
+        <link rel="stylesheet" href="/.tmp/styles.css">
+        <!-- endinject -->
+        <!-- endbuild -->
+    </head>
+    <body>
+        <div class="">
+            <div ui-view></div>
+        </div>
+        <!-- build:js js/lib.js -->
+        <!-- bower:js -->
+        <script src="/bower_components/angular/angular.js"></script>
+        <script src="/bower_components/angular-sanitize/angular-sanitize.js"></script>
+        <script src="/bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+        <script src="/bower_components/material-design-lite/material.min.js"></script>
+        <!-- endbower -->
+        <!-- endbuild -->
+        <!-- build:js js/app.js -->
+        <!-- inject:js -->
+        <script src="/src/client/app/app.module.js"></script>
+        <script src="/src/client/app/core/auth.module.js"></script>
+        <script src="/src/client/app/core/core.module.js"></script>
+        <script src="/src/client/app/home/home.module.js"></script>
+        <script src="/src/client/app/navbar/navbar.module.js"></script>
+        <script src="/src/client/app/widgets/widgets.module.js"></script>
+        <script src="/src/client/app/core/auth.controller.js"></script>
+        <script src="/src/client/app/core/auth.service.js"></script>
+        <script src="/src/client/app/core/core.route.js"></script>
+        <script src="/src/client/app/home/home.controller.js"></script>
+        <script src="/src/client/app/navbar/navbar.controller.js"></script>
+        <script src="/src/client/app/widgets/widget-alert.directive.js"></script>
+        <!-- endinject -->
+        <!-- inject:templates:js -->
+        <!-- endinject -->
+        <!-- endbuild -->
+    </body>
+</html>

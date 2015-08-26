@@ -5,7 +5,7 @@
         .module('app.core')
         .config(function($stateProvider, $urlRouterProvider, $locationProvider) {
 
-    $urlRouterProvider.otherwise("/login");
+    $urlRouterProvider.otherwise("/home");
     $locationProvider.html5Mode(true);
 
     $stateProvider

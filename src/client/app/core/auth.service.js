@@ -22,11 +22,11 @@
         return auth;
 
         function saveToken(token){
-          $window.localStorage['flapper-news-token'] = token;
+          $window.localStorage['token'] = token;
         };
 
         function getToken(){
-          return $window.localStorage['flapper-news-token'];
+          return $window.localStorage['token'];
         }
 
         function isLoggedIn(){
@@ -63,7 +63,7 @@
         };
 
         function logOut(){
-          $window.localStorage.removeItem('flapper-news-token');
+          $window.localStorage.removeItem('token');
         };
 
 

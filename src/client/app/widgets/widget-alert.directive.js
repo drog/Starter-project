@@ -10,7 +10,8 @@
 
         var directive = {
             scope: {
-                'message': '@'
+                'message': '@',
+                'type': '@'
             },
             templateUrl: 'app/widgets/widget-alert.html',
             restrict: 'EA'

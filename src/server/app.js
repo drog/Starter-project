@@ -3,6 +3,9 @@
 
 var express = require('express');
 var app = express();
+var fs = require('fs');
+var join = require('path').join;
+var compression = require('compression');
 var bodyParser = require('body-parser');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
@@ -12,15 +15,24 @@ var passport = require('passport');
 var secrets = require('./config/secrets');
 mongoose.connect(secrets.db);
 
-require('./models/users');
+// Bootstrap models
+fs.readdirSync(join(__dirname, './models')).forEach(function (file) {
+  if (~file.indexOf('.js')) require(join(__dirname, './models', file));
+});
+
 require('./config/passport');
 
-var routes = require('./routes/index');
+var routes = require('./config/routes');
 
 var port = process.env.PORT || 8001;
 var four0four = require('./utils/404')();
 
 var environment = process.env.NODE_ENV;
+
+// Compression middleware (should be placed before express.static)
+app.use(compression({
+    threshold: 512
+}));
 
 //app.use(favicon(__dirname + '/favicon.ico'));
 app.use(bodyParser.urlencoded({extended: true}));

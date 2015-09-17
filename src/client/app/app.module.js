@@ -6,6 +6,8 @@
         'app.auth',
         'app.navbar',
         'app.home',
+        'app.user',
+        'app.contact',
         'app.widgets'
     ]);
 

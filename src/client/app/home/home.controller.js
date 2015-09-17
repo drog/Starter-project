@@ -6,15 +6,10 @@
         .controller('HomeController', HomeController);
 
 
-    HomeController.$inject = ['$scope', '$location'];
+    HomeController.$inject = [];
 
-    function HomeController($scope, $location) {
+    function HomeController() {
         var vm = this;
-        $scope.submit = function() {
 
-          $location.path('/home');
-
-          return false;
-        }
     }
 })();

@@ -1,0 +1,62 @@
+<div class="mdl-grid">
+    <div class="mdl-card mdl-shadow--2dp">
+        <div class="mdl-card__title mdl-color--deep-orange">
+            <h2 class="mdl-card__title-text mdl-color-text--grey-50">Profile Information</h2>
+        </div>
+        <div widget-alert message="{{vm.error.message}}"></div>
+        <div class="mdl-card__supporting-text">
+            <form method="post" class="right mdl-form mdl-form-registration" ng-submit="vm.updateProfile()">
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                    <input class="mdl-textfield__input" type="email" id="email" ng-model="vm.user.email"/>
+                    <label class="mdl-textfield__label" for="email">Email</label>
+                </div>
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                    <input class="mdl-textfield__input" type="string" id="name" ng-model="vm.user.name"/>
+                    <label class="mdl-textfield__label" for="name">Name</label>
+                </div>
+                <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="gender-m">
+                    <input type="radio" id="gender-m" class="mdl-radio__button" name="gender" value="m" checked />
+                    <span class="mdl-radio__label">Male</span>
+                </label>
+                <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="gender-f">
+                    <input type="radio" id="gender-f" class="mdl-radio__button" name="gender" value="f" />
+                    <span class="mdl-radio__label">Female</span>
+                </label>
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                    <input class="mdl-textfield__input" type="string" id="location" ng-model="vm.user.location"/>
+                    <label class="mdl-textfield__label" for="location">Location</label>
+                </div>
+                <div class="mdl-card__actions">
+                    <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--blue">
+                    Update Profile
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div class="mdl-grid">
+    <div class="mdl-card mdl-shadow--2dp">
+        <div class="mdl-card__title mdl-color--deep-orange">
+            <h2 class="mdl-card__title-text mdl-color-text--grey-50">Change Password</h2>
+        </div>
+        <div widget-alert message="{{vm.error.message}}"></div>
+        <div class="mdl-card__supporting-text">
+            <form method="post" class="right mdl-form mdl-form-registration" ng-submit="vm.changePassword()">
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                    <input class="mdl-textfield__input" type="password" id="password" ng-model="vm.user.password"/>
+                    <label class="mdl-textfield__label" for="password">New Password</label>
+                </div>
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                    <input class="mdl-textfield__input" type="password" id="password" ng-model="vm.user.password2"/>
+                    <label class="mdl-textfield__label" for="password">Confirm Password</label>
+                </div>
+                <div class="mdl-card__actions">
+                    <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--blue">
+                    Change Password
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

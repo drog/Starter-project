@@ -8,15 +8,14 @@
             <div class="mdl-layout-spacer"></div>
             <!-- Navigation. We hide it in small screens. -->
             <nav class="mdl-navigation mdl-layout--large-screen-only">
-                <a class="mdl-navigation__link" href="">Link</a>
-                <a class="mdl-navigation__link" href="">Link</a>
-                <a class="mdl-navigation__link" href="">Link</a>
+                <a class="mdl-navigation__link" href="/home">Home</a>
+                <a class="mdl-navigation__link" href="/contact">Contact</a>
             </nav>
             <button id="demo-menu-lower-right" class="mdl-button mdl-js-button mdl-button--icon">
             <i class="material-icons">more_vert</i>
             </button>
             <ul class="mdl-menu mdl-js-menu mdl-menu--bottom-right mdl-js-ripple-effect" for="demo-menu-lower-right">
-                <li ng-show="vm.isLoggedIn()"><a class="mdl-menu__item" href="/register">Configuration</a></li>
+                <li ng-show="vm.isLoggedIn()"><a class="mdl-menu__item" href="/user">My account</a></li>
                 <li ng-show="vm.isLoggedIn()"><a class="mdl-menu__item" ng-click="vm.logOut()">Log Out</a></li>
                 <li ng-hide="vm.isLoggedIn()"><a class="mdl-menu__item" href="/login">Log In</a></li>
                 <li ng-hide="vm.isLoggedIn()"><a class="mdl-menu__item" href="/register">Register</a></li>

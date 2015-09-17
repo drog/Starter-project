@@ -44,13 +44,6 @@
               $state.go('home');
             }
           }]
-        })
-        .state('home', {
-          url: '/home',
-          parent: 'navbar',
-          templateUrl: 'app/home/home.html',
-          controller: 'HomeController',
-          controllerAs: 'vm'
         });
 
       }).run(function($rootScope) {

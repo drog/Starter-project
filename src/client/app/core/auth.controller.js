@@ -14,7 +14,8 @@
 
         vm.register = function(){
           auth.register(vm.user).error(function(error){
-            vm.error = error;
+            vm.type = 'error';
+            vm.message = error.message;
           }).then(function(){
             $state.go('home');
           });
@@ -22,7 +23,8 @@
 
         vm.logIn = function(){
           auth.logIn(vm.user).error(function(error){
-            vm.error = error;
+            vm.type = 'error';
+            vm.message = error.message;
           }).then(function(){
             $state.go('home');
           });

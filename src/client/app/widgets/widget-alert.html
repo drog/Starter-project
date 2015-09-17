@@ -1,3 +1,7 @@
-<div class="mdl-card__title mdl-color--amber-600" ng-show="message">
+<div class="mdl-card__title mdl-color--amber-600" ng-show="message" ng-if="type == 'error'">
+    <h4 class="mdl-card__title-text mdl-color-text--grey-50">{{message}}</h4>
+</div>
+
+<div class="mdl-card__title mdl-color--green" ng-show="message" ng-if="type == 'success'">
     <h4 class="mdl-card__title-text mdl-color-text--grey-50">{{message}}</h4>
 </div>

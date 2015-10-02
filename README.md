@@ -11,9 +11,13 @@ $ cd starter-project
 # Install NPM dependencies
 $ npm install && bower install
 
-$ cd server && npm start
-# in another tab
-$ cd client && gulp serve-dev
+#Development
+$ gulp serve-dev
+
+#Prodcution
+
+$ gulp serve-build
+
 ```
 
 

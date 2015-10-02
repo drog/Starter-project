@@ -13,18 +13,20 @@ exports.register = function (req, res, next) {
       return res.status(400).json({message: 'Please fill out all fields'});
     }
 
+
+
     var user = new User();
 
     user.username = req.body.username;
 
     user.email = req.body.email;
 
-    user.setPassword(req.body.password)
+    user.setPassword(req.body.password);
 
     user.save(function (err){
       if(err){ return next(err); }
 
-      return res.json({token: user.generateJWT()})
+      return res.json({token: user.generateJWT()});
     });
 };
 
@@ -34,7 +36,7 @@ exports.login = function (req, res, next) {
       return res.status(400).json({message: 'Please fill out all fields'});
     }
 
-    passport.authenticate('local', function(err, user, info){
+    passport.authenticate('login-local', function(err, user, info){
       if(err){ return next(err); }
 
       if(user){

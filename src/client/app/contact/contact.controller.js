@@ -18,9 +18,9 @@
             vm.type = 'error';
             vm.message = error.message;
         }).then(function(data){
-            console.log(data);
             vm.type = 'success';
-            vm.message = data.message;
+            vm.message = data.data.message;
+
           });
         };
 

@@ -1,30 +1,30 @@
-<div class="mdl-grid">
-    <div class="mdl-card mdl-shadow--2dp">
-        <div class="mdl-card__title mdl-color--deep-orange">
-            <h2 class="mdl-card__title-text mdl-color-text--grey-50">Contact Form</h2>
+<div flex-sm="100" flex-gt-sm="90" flex-gt-md="70" flex-gt-lg="50" class="md-whiteframe-z2">
+    <md-toolbar class="md-info">
+        <div class="md-toolbar-tools">
+            <h2 class="md-flex">Contact Form</h2>
         </div>
-        <div widget-alert message="{{vm.message}}" type="{{vm.type}}"></div>
-        <div class="mdl-card__supporting-text">
-            <form method="post" class="right mdl-form mdl-form-registration" ng-submit="vm.sendMessage()">
-                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                    <input class="mdl-textfield__input" type="string" id="name" ng-model="vm.message.username"/>
-                    <label class="mdl-textfield__label" for="name">Name</label>
-                </div>
-                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                    <input class="mdl-textfield__input" type="email" id="email" ng-model="vm.message.email"/>
-                    <label class="mdl-textfield__label" for="email">Email</label>
-                </div>
-                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                    <textarea class="mdl-textfield__input" type="text" rows="3" maxrows="6"
-                    id="message" ng-model="vm.message.message"></textarea>
-                    <label class="mdl-textfield__label" for="message">Message</label>
-                </div>
-                <div class="mdl-card__actions">
-                    <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--blue">
-                    Send
-                    </button>
-                </div>
+    </md-toolbar>
+    <div widget-alert message="{{vm.message}}" type="{{vm.type}}"></div>
+    <md-content class="md-padding">
+        <div flex-sm="100" flex-gt-sm="80" layout-sm="column">
+            <form name="contactForm" data-ng-submit="vm.sendMessage()">
+                <md-input-container>
+                    <label>Nick:</label>
+                    <input ng-model="vm.message.username" required>
+                </md-input-container>
+
+                <md-input-container>
+                    <label>Email:</label>
+                    <input type="email" ng-model="vm.message.email" required>
+                </md-input-container>
+
+                <md-input-container>
+                    <label>Message:</label>
+                    <textarea ng-model="vm.message.message" columns="1" md-maxlength="150" required></textarea>
+                </md-input-container>
+
+                <md-button type="submit" class="md-primary" ng-class="{'md-raised': (contactForm.$dirty && contactForm.$valid) }">Send</md-button>
             </form>
         </div>
-    </div>
+    </md-content>
 </div>

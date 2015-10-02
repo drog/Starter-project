@@ -3,6 +3,9 @@
 
     angular
         .module('app.core', [
+            'ngAnimate',
+            'ngMaterial',
+            'ngMdIcons',
             'ngSanitize',
             'ui.router'
         ]);

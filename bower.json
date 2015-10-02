@@ -10,12 +10,12 @@
     "bower_components"
   ],
   "dependencies": {
-    "angular": "~1.4.*",
-    "angular-sanitize": "~1.4.*",
-    "angular-ui-router": "~0.2.15",
-    "material-design-lite": "~1.0.4"
-  },
-  "resolutions": {
-    "angular": "1.4.*"
+    "angular": "^1.4.x",
+    "angular-animate": "^1.4.x",
+    "angular-aria": "^1.4.x",
+    "angular-material": "^0.11.x",
+    "angular-material-icons": "^0.6.x",
+    "angular-sanitize": "^1.4.x",
+    "angular-ui-router": "^0.2.x"
   }
 }

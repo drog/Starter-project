@@ -1,37 +1,36 @@
-<div class="mdl-grid">
-    <div class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
-        <div class="mdl-card mdl-shadow--2dp">
-            <div class="mdl-card__title mdl-color--blue">
-                <h2 class="mdl-card__title-text mdl-color-text--grey-50">Register</h2>
-            </div>
+<div layout-padding>
+    <div flex layout="row" layout-align="center">
+        <div flex-sm="90" flex-gt-sm="80" flex-gt-md="60" flex-gt-lg="40" class="md-whiteframe-z2">
+            <md-toolbar class="md-info">
+                <div class="md-toolbar-tools">
+                    <h2 class="md-flex">Register</h2>
+                </div>
+            </md-toolbar>
             <div widget-alert message="{{vm.message}}" type="{{vm.type}}"></div>
-            <div class="mdl-card__supporting-text">
-                <form method="post" class="right mdl-form mdl-form-registration" ng-submit="vm.register()">
-                    <div class="mdl-form__content">
-                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                            <input class="mdl-textfield__input" type="text" id="username" ng-model="vm.user.username"/>
-                            <label class="mdl-textfield__label" for="sample1">Nick</label>
+            <md-content class="md-padding">
+                <div flex-sm="100" flex-gt-sm="80" layout-sm="column">
+                    <form name="registerForm" data-ng-submit="vm.register()">
+                        <md-input-container>
+                            <label>Nick:</label>
+                            <input ng-model="vm.user.username" required>
+                        </md-input-container>
+                        <md-input-container>
+                            <label>Email:</label>
+                            <input type="email" ng-model="vm.user.email" required>
+                        </md-input-container>
+                        <md-input-container>
+                            <label>Password:</label>
+                            <input type="password" ng-model="vm.user.password" required>
+                        </md-input-container>
+                        <div layout="row" layout-align="center center">
+                            <md-button type="submit" class="md-primary md-raised full-width" ng-disabled="registerForm.$invalid">Register</md-button>
                         </div>
-                        <br>
-                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                            <input class="mdl-textfield__input" type="email" id="email"  ng-model="vm.user.email"/>
-                            <label class="mdl-textfield__label" for="email">Email</label>
+                        <div layout="row" layout-align="center center">
+                            <a class="md-primary md-button full-width" href="/login">Already have an account? Login here</a>
                         </div>
-                        <br>
-                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                            <input class="mdl-textfield__input" type="password" id="password" ng-model="vm.user.password"/>
-                            <label class="mdl-textfield__label" for="email">Password</label>
-                        </div>
-                    </div>
-                    <div class="mdl-card__actions">
-                        <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--primary mdl-js-ripple-effect">Register</button>
-                        <a class="android-link mdl-button mdl-js-button mdl-typography--text-uppercase" href="/login" data-upgraded=",MaterialButton">
-                            login
-                            <i class="material-icons">chevron_right</i>
-                        </a>
-                    </div>
-                </form>
-            </div>
+                    </form>
+                </div>
+            </md-content>
         </div>
     </div>
 </div>

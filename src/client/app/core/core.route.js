@@ -3,9 +3,9 @@
 
     angular
         .module('app.core')
-        .config(function($stateProvider, $urlRouterProvider, $locationProvider) {
+        .config(function($stateProvider, $urlRouterProvider, $locationProvider, $mdThemingProvider) {
 
-    $urlRouterProvider.otherwise("/home");
+    $urlRouterProvider.otherwise('/home');
     $locationProvider.html5Mode(true);
 
     $stateProvider
@@ -23,7 +23,6 @@
       })
       .state('login', {
           url: '/login',
-          parent: 'base',
           templateUrl: 'app/login/login.html',
           controller: 'AuthController',
           controllerAs: 'vm',
@@ -35,7 +34,6 @@
         })
       .state('register', {
           url: '/register',
-          parent: 'base',
           templateUrl: 'app/login/register.html',
           controller: 'AuthController',
           controllerAs: 'vm',
@@ -46,11 +44,22 @@
           }]
         });
 
-      }).run(function($rootScope) {
-      $rootScope.$on('$viewContentLoaded', function(values) {
-        componentHandler.upgradeAllRegistered();
-      });
-    });
+        var customBlueMap = 		$mdThemingProvider.extendPalette('light-blue', {
+            'contrastDefaultColor': 'light',
+            'contrastDarkColors': ['50'],
+            '50': 'ffffff'
+          });
+        $mdThemingProvider.definePalette('customBlue', customBlueMap);
+        $mdThemingProvider.theme('default')
+            .primaryPalette('customBlue', {
+              'default': '500',
+              'hue-1': '50'
+            })
+            .accentPalette('green');
+          $mdThemingProvider.theme('input', 'default')
+                .primaryPalette('grey');
+
+              });
 
 
 })();

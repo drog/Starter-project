@@ -23,7 +23,7 @@
 
         function saveToken(token){
           $window.localStorage['token'] = token;
-        };
+        }
 
         function getToken(){
           return $window.localStorage['token'];
@@ -39,7 +39,7 @@
           } else {
             return false;
           }
-        };
+        }
 
         function currentUser(){
           if(auth.isLoggedIn()){
@@ -48,23 +48,23 @@
 
             return payload.username;
           }
-        };
+        }
 
         function register(user){
           return $http.post('/api/register', user).success(function(data){
             auth.saveToken(data.token);
           });
-        };
+        }
 
         function logIn(user){
           return $http.post('/api/login', user).success(function(data){
             auth.saveToken(data.token);
           });
-        };
+        }
 
         function logOut(){
           $window.localStorage.removeItem('token');
-        };
+        }
 
 
     }

@@ -1,37 +1,57 @@
-<!-- Always shows a header, even in smaller screens. -->
-<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header ">
-    <header class="mdl-layout__header mdl-color--green-A700">
-        <div class="mdl-layout__header-row">
-            <!-- Title -->
-            <span class="mdl-layout-title">Starter Project</span>
-            <!-- Add spacer, to align navigation to the right -->
-            <div class="mdl-layout-spacer"></div>
-            <!-- Navigation. We hide it in small screens. -->
-            <nav class="mdl-navigation mdl-layout--large-screen-only">
-                <a class="mdl-navigation__link" href="/home">Home</a>
-                <a class="mdl-navigation__link" href="/contact">Contact</a>
-            </nav>
-            <button id="demo-menu-lower-right" class="mdl-button mdl-js-button mdl-button--icon">
-            <i class="material-icons">more_vert</i>
-            </button>
-            <ul class="mdl-menu mdl-js-menu mdl-menu--bottom-right mdl-js-ripple-effect" for="demo-menu-lower-right">
-                <li ng-show="vm.isLoggedIn()"><a class="mdl-menu__item" href="/user">My account</a></li>
-                <li ng-show="vm.isLoggedIn()"><a class="mdl-menu__item" ng-click="vm.logOut()">Log Out</a></li>
-                <li ng-hide="vm.isLoggedIn()"><a class="mdl-menu__item" href="/login">Log In</a></li>
-                <li ng-hide="vm.isLoggedIn()"><a class="mdl-menu__item" href="/register">Register</a></li>
-            </ul>
-        </div>
-    </header>
-    <div class="mdl-layout__drawer">
-        <span class="mdl-layout-title">Title</span>
-        <nav class="mdl-navigation">
-            <a class="mdl-navigation__link" href="">Link</a>
-            <a class="mdl-navigation__link" href="">Link</a>
-            <a class="mdl-navigation__link" href="">Link</a>
-            <a class="mdl-navigation__link" href="">Link</a>
-        </nav>
-    </div>
-    <main class="mdl-layout__content">
-    <div class="page-content" ui-view></div>
-    </main>
-</div>
+<md-toolbar layout="row">
+    <button ng-click="vm.toggleSidenav('left')" hide-gt-sm class="menuBtn">
+        <span class="visually-hidden">Menu</span>
+    </button>
+    <h1 class="md-toolbar-tools" layout-align-gt-sm="left">Starter Project</h1>
+        <md-menu>
+            <md-button aria-label="Open Settings" ng-click="$mdOpenMenu()">
+                <ng-md-icon icon="more_vert"></ng-md-icon>
+            </md-button>
+            <md-menu-content width="3">
+                <md-menu-item ng-show="vm.isLoggedIn()">
+                    <md-button href="/user">
+                        My account
+                    </md-button>
+                </md-menu-item>
+                <md-menu-item ng-show="vm.isLoggedIn()">
+                    <md-button ng-click="vm.logOut()">
+                        Log Out
+                    </md-button>
+                </md-menu-item>
+
+                <md-menu-item ng-hide="vm.isLoggedIn()">
+                    <md-button href="/login">
+                        Log In
+                    </md-button>
+                </md-menu-item>
+
+                <md-menu-item ng-hide="vm.isLoggedIn()">
+                    <md-button href="/register">
+                        Register
+                    </md-button>
+                </md-menu-item>
+
+            </md-menu-content>
+        </md-menu>
+
+</md-toolbar>
+<section layout="row" flex>
+    <md-sidenav layout="column" class="md-sidenav-left md-whiteframe-z2" md-component-id="left" md-is-locked-open="$mdMedia('gt-sm')">
+        <md-content layout-padding>
+        <md-list>
+            <md-list-item md-ink-ripple>
+                <a class="md-button" href="/contact">
+                        Contact
+                </a>
+
+            </md-list-item>
+        </md-list>
+    </md-content>
+
+    </md-sidenav>
+
+
+        <md-content layout="column" flex class="md-padding" ui-view>
+
+        </md-content>
+</section>

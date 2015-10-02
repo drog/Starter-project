@@ -18,6 +18,6 @@ exports.save = function (req, res, next) {
     contact.save(function (err){
       if(err){ return next(err); }
 
-      return res.json("Your message has sent");
+      return res.status(200).json({message: 'Your message has sent'});
     });
 };

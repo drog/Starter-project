@@ -9,6 +9,6 @@
               templateUrl: 'app/contact/contact.html',
               controller: 'ContactController',
               controllerAs: 'vm'
-            })
+            });
     });
 })();

@@ -1,4 +1,4 @@
-(function () {
+(function() {
     'use strict';
 
     angular
@@ -13,18 +13,16 @@
         vm.user = {};
 
 
-        vm.updateProfile = function(){
-          user.updateProfile(vm.user).error(function(error){
-            vm.error = error;
-          }).then(function(){
-          });
+        vm.updateProfile = function() {
+            user.updateProfile(vm.user).error(function(error) {
+                vm.error = error;
+            }).then(function() {});
         };
 
-        vm.changePassword = function(){
-          user.changePassword(vm.user).error(function(error){
-            vm.error = error;
-          }).then(function(){
-          });
+        vm.changePassword = function() {
+            user.changePassword(vm.user).error(function(error) {
+                vm.error = error;
+            }).then(function() {});
         };
 
 

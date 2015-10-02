@@ -1,9 +1,10 @@
 {
   "name": "Starter project",
   "version": "0.0.1",
-  "description": "Starter project with MEAN and material-design-lite",
+  "description": "Starter project with MEAN and angular-material",
   "authors": [],
   "license": "MIT",
+  "private": true,
   "ignore": [
     "**/.*",
     "node_modules",

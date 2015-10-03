@@ -1,30 +1,22 @@
-<div flex-sm="100" flex-gt-sm="90" flex-gt-md="70" flex-gt-lg="50" class="md-whiteframe-z2">
-    <md-toolbar class="md-info">
-        <div class="md-toolbar-tools">
-            <h2 class="md-flex">Contact Form</h2>
-        </div>
-    </md-toolbar>
-    <div widget-alert message="{{vm.message}}" type="{{vm.type}}"></div>
-    <md-content class="md-padding">
-        <div flex-sm="100" flex-gt-sm="80" layout-sm="column">
-            <form name="contactForm" data-ng-submit="vm.sendMessage()">
-                <md-input-container>
-                    <label>Nick:</label>
-                    <input ng-model="vm.message.username" required>
-                </md-input-container>
-
-                <md-input-container>
-                    <label>Email:</label>
-                    <input type="email" ng-model="vm.message.email" required>
-                </md-input-container>
-
-                <md-input-container>
-                    <label>Message:</label>
-                    <textarea ng-model="vm.message.message" columns="1" md-maxlength="150" required></textarea>
-                </md-input-container>
-
+<md-card flex>
+    <md-card-content>
+        <h2>Contact form</h2>
+        <form name="contactForm" data-ng-submit="vm.sendMessage()">
+            <md-input-container>
+                <label>Nick:</label>
+                <input ng-model="vm.message.username" required>
+            </md-input-container>
+            <md-input-container>
+                <label>Email:</label>
+                <input type="email" ng-model="vm.message.email" required>
+            </md-input-container>
+            <md-input-container>
+                <label>Message:</label>
+                <textarea ng-model="vm.message.message" columns="1" md-maxlength="150" required></textarea>
+            </md-input-container>
+            <div layout="row" layout-align="end center">
                 <md-button type="submit" class="md-primary" ng-class="{'md-raised': (contactForm.$dirty && contactForm.$valid) }">Send</md-button>
-            </form>
-        </div>
-    </md-content>
-</div>
+            </div>
+        </form>
+    </md-card-content>
+</md-card>

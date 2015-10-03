@@ -1,65 +1,47 @@
-<div flex-sm="100" flex-gt-sm="90" flex-gt-md="70" flex-gt-lg="50" class="md-whiteframe-z2">
-    <md-toolbar class="md-info">
-        <div class="md-toolbar-tools">
-            <h2 class="md-flex">Profile Information</h2>
-        </div>
-    </md-toolbar>
-    <md-content class="md-padding">
-        <div flex-sm="100" flex-gt-sm="80" layout-sm="column">
-            <form name="contactForm" data-ng-submit="vm.updateProfile()">
-
-                <md-input-container>
-                    <label>Email:</label>
-                    <input type="email" ng-model="vm.user.email" required>
-                </md-input-container>
-
-                <md-input-container>
-                    <label>Name:</label>
-                    <input ng-model="vm.user.name" required>
-                </md-input-container>
-
-                <md-input-container>
-                    <p>Sex:</p>
-                    <md-radio-group ng-model="vm.user.gender">
-                        <md-radio-button value="m" class="md-primary"> Male </md-radio-button>
-                        <md-radio-button value="f">Female</md-radio-button>
-                    </md-radio-group>
-                </md-input-container>
-
-                <md-input-container>
-                    <label>Location:</label>
-                    <input ng-model="vm.user.location" required>
-                </md-input-container>
-
-                <md-button type="submit" class="md-primary" ng-class="{'md-raised md-hue-1': (contactForm.$dirty && contactForm.$valid) }">Update Profile</md-button>
-            </form>
-        </div>
-    </md-content>
-</div>
-
-<br>
-<div flex-sm="100" flex-gt-sm="90" flex-gt-md="70" flex-gt-lg="50" class="md-whiteframe-z2">
-    <md-toolbar class="md-info">
-        <div class="md-toolbar-tools">
-            <h2 class="md-flex">Change Password</h2>
-        </div>
-    </md-toolbar>
-    <md-content class="md-padding">
-        <div flex-sm="100" flex-gt-sm="80" layout-sm="column">
-            <form name="contactForm" data-ng-submit="vm.changePassword()">
-
-                <md-input-container>
-                    <label>Actual Password:</label>
-                    <input type="password" ng-model="vm.user.password" required>
-                </md-input-container>
-
-                <md-input-container>
-                    <label>New Password:</label>
-                    <input type="password" ng-model="vm.user.new_password" required>
-                </md-input-container>
-
-                <md-button type="submit" class="md-primary" ng-class="{'md-raised md-hue-1': (contactForm.$dirty && contactForm.$valid) }">Change Password</md-button>
-            </form>
-        </div>
-    </md-content>
-</div>
+<md-card flex>
+    <md-card-content>
+        <h2>Profile Information</h2>
+        <form name="profileForm" data-ng-submit="vm.updateProfile()">
+            <md-input-container>
+                <label>Email:</label>
+                <input type="email" ng-model="vm.user.email" required>
+            </md-input-container>
+            <md-input-container>
+                <label>Name:</label>
+                <input ng-model="vm.user.name" required>
+            </md-input-container>
+            <md-input-container>
+                <p>Sex:</p>
+                <md-radio-group ng-model="vm.user.gender">
+                    <md-radio-button value="m" class="md-primary"> Male </md-radio-button>
+                    <md-radio-button value="f">Female</md-radio-button>
+                </md-radio-group>
+            </md-input-container>
+            <md-input-container>
+                <label>Location:</label>
+                <input ng-model="vm.user.location" required>
+            </md-input-container>
+            <div layout="row" layout-align="end center">
+                <md-button type="submit" class="md-primary" ng-class="{'md-raised md-hue-1': (profileForm.$dirty && profileForm.$valid) }">Update Profile</md-button>
+            </div>
+        </form>
+    </md-card-content>
+</md-card>
+<md-card flex>
+    <md-card-content>
+        <h2>Change Password</h2>
+        <form name="passwordForm" data-ng-submit="vm.changePassword()">
+            <md-input-container>
+                <label>Actual Password:</label>
+                <input type="password" ng-model="vm.user.password" required>
+            </md-input-container>
+            <md-input-container>
+                <label>New Password:</label>
+                <input type="password" ng-model="vm.user.new_password" required>
+            </md-input-container>
+            <div layout="row" layout-align="end center">
+                <md-button type="submit" class="md-primary" ng-class="{'md-raised md-hue-1': (passwordForm.$dirty && passwordForm.$valid) }">Change Password</md-button>
+            </div>
+        </form>
+    </md-card-content>
+</md-card>

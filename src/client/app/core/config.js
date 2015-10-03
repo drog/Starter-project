@@ -9,7 +9,8 @@
 
         $mdThemingProvider.theme('default')
             .primaryPalette('cyan')
-            .accentPalette('orange');
+            .accentPalette('orange')
+            .warnPalette('red');
     }
 
     core.config(configRouter);

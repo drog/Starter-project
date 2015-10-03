@@ -1,7 +1,7 @@
 <md-toolbar layout="row">
-    <button ng-click="vm.toggleSidenav('left')" hide-gt-sm>
+    <md-button ng-click="vm.toggleSidenav('left')" hide-gt-sm>
         <ng-md-icon icon="menu"></ng-md-icon>
-    </button>
+    </md-button>
     <h1 class="md-toolbar-tools" layout-align-gt-sm="left">Starter Project</h1>
     <md-toolbar layout="row" layout-align="end center">
         <a class="md-button" href="/home">Home</a>
@@ -40,9 +40,11 @@
         <md-list>
             <div ui-sref="contact">
                 <md-list-item md-ink-ripple>
-                        Contact
+                    Contact
                 </md-list-item>
             </div>
+            <md-divider></md-divider>
+            <md-subheader class="md-no-sticky">Separator</md-subheader>
         </md-list>
     </md-sidenav>
     <md-content layout="column" flex class="md-padding" ui-view>

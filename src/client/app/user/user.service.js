@@ -10,24 +10,30 @@
     /* @ngInject */
     function user($http) {
         return {
-            updateProfile : updateProfile,
-            changePassword : changePassword
+            getProfile: getProfile,
+            updateProfile: updateProfile,
+            changePassword: changePassword
         };
 
+        function getProfile() {
+            return $http.get('/api/me').success(function(data) {
 
-        function updateProfile(user){
-          return $http.post('/api/update_profile', user).success(function(data){
+            });
+        }
 
-          });
-        };
+        function updateProfile(user) {
+            return $http.put('/api/update_profile', user).success(function(data) {
 
-          function changePassword(user){
-          return $http.post('/api/change_password', user).success(function(data){
+            });
+        }
 
-          });
+        function changePassword(user) {
+            return $http.put('/api/change_password', user).success(function(data) {
+
+            });
 
 
-        };
+        }
 
     }
 }());

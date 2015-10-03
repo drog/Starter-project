@@ -14,12 +14,12 @@
 
 
         vm.sendMessage = function(){
-          contact.sendMessage(vm.message).error(function(error){
-            vm.type = 'error';
-            vm.message = error.message;
-        }).then(function(data){
-            vm.type = 'success';
-            vm.message = data.data.message;
+          contact.sendMessage(vm.message).error(function(res){
+            vm.type = res.data.type;
+            vm.message = res.data.message;
+        }).then(function(res){
+            vm.type = res.data.type;
+            vm.message = res.data.message;
 
           });
         };

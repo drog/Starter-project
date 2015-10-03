@@ -15,10 +15,12 @@
 
     core.config(configRouter);
 
-    function configRouter($urlRouterProvider, $locationProvider) {
+    function configRouter($urlRouterProvider, $locationProvider, $httpProvider) {
 
         $urlRouterProvider.otherwise('/home');
         $locationProvider.html5Mode(true);
+
+        $httpProvider.interceptors.push('authInterceptor');
     }
 
 })();

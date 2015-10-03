@@ -13,15 +13,9 @@ var UserSchema = new mongoose.Schema({
   twitter: String,
   google: String,
 
-  profile: {
-    name: { type: String, default: '' },
-    gender: { type: String, default: '' },
-    location: { type: String, default: '' },
-    picture: { type: String, default: '' }
-  },
-
-  resetPasswordToken: String,
-  resetPasswordExpires: Date
+  gender: { type: String, default: '' },
+  location: { type: String, default: '' },
+  picture: { type: String, default: '' },
 
 });
 

@@ -1,6 +1,7 @@
 <md-card flex>
     <md-card-content>
         <h2>Contact form</h2>
+        <div widget-alert message="{{vm.message}}" type="{{vm.type}}"></div>
         <form name="contactForm" data-ng-submit="vm.sendMessage()">
             <md-input-container>
                 <label>Nick:</label>

@@ -1,14 +1,15 @@
 <md-card flex>
     <md-card-content>
         <h2>Profile Information</h2>
+        <div widget-alert message="{{vm.profileForm.message}}" type="{{vm.profileForm.type}}"></div>
         <form name="profileForm" data-ng-submit="vm.updateProfile()">
             <md-input-container>
                 <label>Email:</label>
-                <input type="email" ng-model="vm.user.email" required>
+                <input type="email" ng-model="vm.user.email" disabled>
             </md-input-container>
             <md-input-container>
                 <label>Name:</label>
-                <input ng-model="vm.user.name" required>
+                <input ng-model="vm.user.username" disabled>
             </md-input-container>
             <md-input-container>
                 <p>Sex:</p>
@@ -30,14 +31,15 @@
 <md-card flex>
     <md-card-content>
         <h2>Change Password</h2>
+        <div widget-alert message="{{vm.passForm.message}}" type="{{vm.passForm.type}}"></div>
         <form name="passwordForm" data-ng-submit="vm.changePassword()">
             <md-input-container>
                 <label>Actual Password:</label>
-                <input type="password" ng-model="vm.user.password" required>
+                <input type="password" ng-model="vm.userPass.password" required>
             </md-input-container>
             <md-input-container>
                 <label>New Password:</label>
-                <input type="password" ng-model="vm.user.new_password" required>
+                <input type="password" ng-model="vm.userPass.new_password" required>
             </md-input-container>
             <div layout="row" layout-align="end center">
                 <md-button type="submit" class="md-primary" ng-class="{'md-raised md-hue-1': (passwordForm.$dirty && passwordForm.$valid) }">Change Password</md-button>

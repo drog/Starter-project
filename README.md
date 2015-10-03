@@ -15,7 +15,6 @@ $ npm install && bower install
 $ gulp serve-dev
 
 #Prodcution
-
 $ gulp serve-build
 
 ```

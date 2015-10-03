@@ -7,7 +7,6 @@ var fs = require('fs');
 var join = require('path').join;
 var compression = require('compression');
 var bodyParser = require('body-parser');
-var favicon = require('serve-favicon');
 var logger = require('morgan');
 var mongoose = require('mongoose');
 var passport = require('passport');
@@ -34,7 +33,6 @@ app.use(compression({
     threshold: 512
 }));
 
-//app.use(favicon(__dirname + '/favicon.ico'));
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 app.use(logger('dev'));

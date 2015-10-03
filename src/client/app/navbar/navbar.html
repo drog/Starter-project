@@ -1,8 +1,12 @@
 <md-toolbar layout="row">
-    <button ng-click="vm.toggleSidenav('left')" hide-gt-sm class="menuBtn">
-        <span class="visually-hidden">Menu</span>
+    <button ng-click="vm.toggleSidenav('left')" hide-gt-sm>
+        <ng-md-icon icon="menu"></ng-md-icon>
     </button>
     <h1 class="md-toolbar-tools" layout-align-gt-sm="left">Starter Project</h1>
+    <md-toolbar layout="row" layout-align="end center">
+        <a class="md-button" href="/home">Home</a>
+        <a class="md-button" href="/contact">Contact</a>
+    </md-toolbar>
     <md-menu>
         <md-button aria-label="Open Settings" ng-click="$mdOpenMenu()">
             <ng-md-icon icon="more_vert"></ng-md-icon>
@@ -31,18 +35,15 @@
         </md-menu-content>
     </md-menu>
 </md-toolbar>
-
 <section layout="row" flex>
     <md-sidenav layout="column" class="md-sidenav-left md-whiteframe-z2" md-component-id="left" md-is-locked-open="$mdMedia('gt-sm')">
-        <md-content layout-padding>
-            <md-list>
+        <md-list>
+            <div ui-sref="contact">
                 <md-list-item md-ink-ripple>
-                    <a class="md-button" href="/contact">
                         Contact
-                </a>
                 </md-list-item>
-            </md-list>
-        </md-content>
+            </div>
+        </md-list>
     </md-sidenav>
     <md-content layout="column" flex class="md-padding" ui-view>
     </md-content>

@@ -3,7 +3,7 @@
 </md-data-table-toolbar>
 <md-data-table-container>
     <table md-data-table  md-row-select="vm.selected" md-progress="deferred">
-        <thead md-order="vm.query.order" md-trigger="onOrderChange">
+        <thead md-order="vm.query.order">
             <tr>
                 <th order-by="username" name="username"></th>
                 <th order-by="email" name="email"></th>
@@ -12,7 +12,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr md-auto-select ng-repeat="user in vm.users">
+            <tr md-auto-select ng-repeat="user in vm.users | orderBy: vm.query.order | limitTo: vm.query.limit: (vm.query.page - 1) * vm.query.limit">
                 <td>{{user.username}}</td>
                 <td>{{user.email}}</td>
                 <td>{{user.gender}}</td>
@@ -21,4 +21,4 @@
         </tbody>
     </table>
 </md-data-table-container>
-<md-data-table-pagination md-limit="vm.query.limit" md-page="vm.query.page" md-total="{{vm.users.count}}" md-trigger="onpagechange"></md-data-table-pagination>
+<md-data-table-pagination md-limit="vm.query.limit" md-page="vm.query.page" md-total="{{vm.users.length}}"></md-data-table-pagination>

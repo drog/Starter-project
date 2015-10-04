@@ -13,6 +13,8 @@ router.get('/me', auth, users.getProfile);
 router.put('/update_profile', auth, users.updateProfile);
 router.put('/change_password', auth, users.changePassword);
 
+router.get('/users', auth, users.getUsers);
+
 
 
 router.post('/contact', contact.save);

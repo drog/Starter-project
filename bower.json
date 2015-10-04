@@ -17,6 +17,7 @@
     "angular-material": "^0.11.x",
     "angular-material-icons": "^0.6.x",
     "angular-sanitize": "^1.4.x",
-    "angular-ui-router": "^0.2.x"
+    "angular-ui-router": "^0.2.x",
+    "angular-material-data-table": "~0.8.14"
   }
 }

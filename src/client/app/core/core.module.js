@@ -7,6 +7,7 @@
             'ngMaterial',
             'ngMdIcons',
             'ngSanitize',
-            'ui.router'
+            'ui.router',
+            'md.data.table'
         ]);
 })();

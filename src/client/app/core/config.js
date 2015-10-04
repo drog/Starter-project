@@ -8,7 +8,7 @@
     function configureTheme($mdThemingProvider) {
 
         $mdThemingProvider.theme('default')
-            .primaryPalette('cyan')
+            .primaryPalette('teal')
             .accentPalette('orange')
             .warnPalette('red');
     }

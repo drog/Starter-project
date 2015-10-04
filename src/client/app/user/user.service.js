@@ -12,7 +12,8 @@
         return {
             getProfile: getProfile,
             updateProfile: updateProfile,
-            changePassword: changePassword
+            changePassword: changePassword,
+            getUsers: getUsers
         };
 
         function getProfile() {
@@ -29,6 +30,14 @@
 
         function changePassword(user) {
             return $http.put('/api/change_password', user).success(function(data) {
+
+            });
+
+
+        }
+
+        function getUsers() {
+            return $http.get('/api/users').success(function(data) {
 
             });
 

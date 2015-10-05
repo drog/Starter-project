@@ -7,5 +7,5 @@ services:
 node_js:
   - "stable"
 
-before_script:
-  - npm install -g bower
+before_install:
+  - npm install -g bower gulp

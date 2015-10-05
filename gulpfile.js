@@ -240,7 +240,7 @@ gulp.task('optimize', ['inject'], function() {
  * @param  {Function} done - callback when complete
  */
 gulp.task('clean', function(done) {
-    var delconfig = [].concat(config.build, config.temp, config.report);
+    var delconfig = [].concat(config.build, config.temp);
     log('Cleaning: ' + $.util.colors.blue(delconfig));
     del(delconfig, done);
 });
@@ -285,6 +285,7 @@ gulp.task('clean-code', function(done) {
     );
     clean(files, done);
 });
+
 
 /**
  * serve the dev environment
@@ -493,7 +494,6 @@ function startBrowserSync(isDev, specRunner) {
 
     browserSync(options);
 }
-
 
 /**
  * Formatter for bytediff to display the size changes after processing

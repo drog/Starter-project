@@ -38,16 +38,21 @@
 <section layout="row" flex>
     <md-sidenav layout="column" class="md-sidenav-left md-whiteframe-z2" md-component-id="left" md-is-locked-open="$mdMedia('gt-sm')">
         <md-list>
+            <div ui-sref="list-users">
+                <md-list-item md-ink-ripple>
+                    List of users
+                </md-list-item>
+            </div>
+            <md-divider></md-divider>
+            <md-subheader class="md-no-sticky">Project</md-subheader>
             <div ui-sref="contact">
                 <md-list-item md-ink-ripple>
                     Contact
                 </md-list-item>
             </div>
-            <md-divider></md-divider>
-            <md-subheader class="md-no-sticky">Separator</md-subheader>
-            <div ui-sref="list-users">
+            <div ui-sref="about">
                 <md-list-item md-ink-ripple>
-                    List of users
+                    About the project
                 </md-list-item>
             </div>
         </md-list>

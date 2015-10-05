@@ -8,6 +8,7 @@
         'app.home',
         'app.user',
         'app.contact',
+        'app.about',
         'app.widgets'
     ]);
 

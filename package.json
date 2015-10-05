@@ -12,8 +12,7 @@
     "scripts": {
         "init": "npm install",
         "postinstall": "bower install",
-        "start": "node src/server/app.js",
-        "test": "gulp test"
+        "start": "node src/server/app.js"
     },
     "dependencies": {
         "body-parser": "^1.8.2",
@@ -68,7 +67,6 @@
         "method-override": "^2.3.4",
         "minimist": "^1.1.0",
         "node-notifier": "^4.0.3",
-        "phantomjs": "^1.9.17",
         "q": "^1.0.1",
         "wiredep": "^2.2.2",
         "yargs": "^3.15.0"

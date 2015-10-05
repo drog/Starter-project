@@ -2,7 +2,6 @@ module.exports = function() {
     var client = './src/client/';
     var server = './src/server/';
     var clientApp = client + 'app/';
-    var report = './report/';
     var root = './';
     var temp = './.tmp/';
     var wiredep = require('wiredep');
@@ -42,7 +41,6 @@ module.exports = function() {
             '**/*.js'
         ],
         less: client + 'styles/styles.less',
-        report: report,
         root: root,
         server: server,
         source: 'src/',
@@ -102,6 +100,9 @@ module.exports = function() {
     };
 
     return config;
+
+    ////////////////
+
 
 
 };

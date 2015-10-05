@@ -14,6 +14,7 @@
                 },
                 response: function(response) {
                     if (response.status === 401) {
+                        alert("asd "+response.status);
                         $window.localStorage.removeItem('token');
                     }
                     return response || $q.when(response);

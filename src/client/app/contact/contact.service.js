@@ -15,12 +15,9 @@
 
 
         function sendMessage(message){
-          return $http.post('/api/contact', message).success(function(response){
-              return response.data;
-          });
+          return $http.post('/api/contact', message);
 
-
-        };
+        }
 
     }
 }());

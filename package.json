@@ -27,7 +27,8 @@
         "morgan": "^1.1.1",
         "passport": "^0.3.0",
         "passport-local": "^1.0.0",
-        "bower": "^1.5.3"
+        "bower": "^1.5.3",
+        "gulp": "^3.8.10"
     },
     "devDependencies": {
         "browser-sync": "^2.7.13",
@@ -36,7 +37,6 @@
         "debug": "^2.0.0",
         "del": "^1.2.0",
         "glob": "^4.5.3",
-        "gulp": "^3.8.10",
         "gulp-angular-templatecache": "^1.4.2",
         "gulp-autoprefixer": "^2.3.1",
         "gulp-bump": "^0.3.1",

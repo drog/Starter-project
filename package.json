@@ -2,18 +2,18 @@
     "name": "starter-project",
     "description": "starter-project",
     "version": "0.0.1",
+    "private": true,
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/drog/Starter-project.git"
+    },
+    "license": "MIT",
+    "homepage": "https://github.com/drog/Starter-project",
     "scripts": {
         "init": "npm install",
         "install": "bower install",
         "start": "node src/server/app.js",
-        "test": "gulp test",
-        "private": true,
-        "repository": {
-            "type": "git",
-            "url": "https://github.com/drog/Starter-project.git"
-        },
-        "license": "MIT",
-        "homepage": "https://github.com/drog/Starter-project"
+        "test": "gulp test"
     },
     "dependencies": {
         "body-parser": "^1.8.2",

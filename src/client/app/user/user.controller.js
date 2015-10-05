@@ -14,12 +14,12 @@
         vm.profileForm = {};
         vm.passForm = {};
 
-        getProfile();
+        activate();
 
-        function getProfile(){
-            user.getProfile().error(function(error) {
-            }).then(function(res) {
-                angular.copy(res.data, vm.user);
+        function activate(){
+            return user.getProfile().then(function(response) {
+                vm.user  = response.data;
+                return vm.user;
             });
         }
 

@@ -57,11 +57,6 @@ module.exports = function() {
         },
 
         /**
-         * plato
-         */
-        plato: {js: clientApp + '**/*.js'},
-
-        /**
          * browser sync
          */
         browserReloadDelay: 1000,

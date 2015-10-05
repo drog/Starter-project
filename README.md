@@ -1,26 +1,53 @@
-# Starter project
+# Starter project [![Dependency Status](https://david-dm.org/drog/Starter-project/status.svg?style=flat)](https://david-dm.org/drog/Starter-project)
+
+## About the project
+Starter Project with MEAN stack -> Mongo, express with [jwt](https://auth0.com/blog/2014/01/07/angularjs-authentication-with-cookies-vs-token/), angularjs [based on Angular Style Guide by John Papa](https://github.com/johnpapa/angular-styleguide), node.js and  [angular-material](https://github.com/angular/material) with [angular-material-data-table](https://github.com/daniel-nagy/md-data-table)
 
 
-Getting Started
----------------
+
+
+## Getting Started
+
 
 ```bash
 $ git clone git@github.com:drog/Starter-project.git starter-project
 $ cd starter-project
 
-# Install NPM dependencies
+# Install NPM dependencies and bower dependencies
 $ npm install && bower install
 
-#Development
+# Start the server in Development
 $ gulp serve-dev
 
-#Prodcution
+# Start the server in Prodcution
 $ gulp serve-build
 
 ```
 
 
-jwt
-https://auth0.com/blog/2014/01/07/angularjs-authentication-with-cookies-vs-token/
+## Some Screenshoots
+<img src="http://i.imgur.com/smqqiuv.png" alt="login" />
+<img src="http://i.imgur.com/0mRHcha.png" alt="register" />
 
-#based on hottowel-generator
+<img src="http://i.imgur.com/OK6byJl.png" alt="angular table" />
+
+## Change Theme
+
+src/client/app/core/config.js
+```javascript
+    core.config(configureTheme);
+
+    function configureTheme($mdThemingProvider) {
+
+        $mdThemingProvider.theme('default')
+            .primaryPalette('teal')
+            .accentPalette('orange')
+            .warnPalette('red');
+    }
+```
+More info on [Material Angular Page](https://material.angularjs.org/HEAD/#/Theming/03_configuring_a_theme)
+
+
+## License
+
+MIT

@@ -1,24 +1,31 @@
-<md-data-table-toolbar>
-    <h2 class="md-title">User list</h2>
-</md-data-table-toolbar>
-<md-data-table-container>
-    <table md-data-table  md-row-select="vm.selected" md-progress="deferred">
-        <thead md-order="vm.query.order">
-            <tr>
-                <th order-by="username" name="username"></th>
-                <th order-by="email" name="email"></th>
-                <th order-by="gender" name="gender"></th>
-                <th order-by="location" name="location"></th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr md-auto-select ng-repeat="user in vm.users | orderBy: vm.query.order | limitTo: vm.query.limit: (vm.query.page - 1) * vm.query.limit">
-                <td>{{user.username}}</td>
-                <td>{{user.email}}</td>
-                <td>{{user.gender}}</td>
-                <td>{{user.location}}</td>
-            </tr>
-        </tbody>
-    </table>
-</md-data-table-container>
-<md-data-table-pagination md-limit="vm.query.limit" md-page="vm.query.page" md-total="{{vm.users.length}}"></md-data-table-pagination>
+<md-content laout="column" flex>
+    <md-card>
+        <md-data-table-toolbar ng-show="!vm.selected.length">
+            <h2 class="md-title">User list</h2>
+        </md-data-table-toolbar>
+        <md-data-table-toolbar class="alternate" ng-show="vm.selected.length">
+            <div>{{vm.selected.length}} {{vm.selected.length > 1 ? 'items' : 'item'}} selected</div>
+        </md-data-table-toolbar>
+        <md-data-table-container>
+            <table md-data-table md-row-select="vm.selected" md-progress="deferred">
+                <thead md-order="vm.query.order">
+                    <tr>
+                        <th order-by="username" name="username"></th>
+                        <th order-by="email" name="email"></th>
+                        <th order-by="gender" name="gender"></th>
+                        <th order-by="location" name="location"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr md-auto-select ng-repeat="user in vm.users | orderBy: vm.query.order | limitTo: vm.query.limit: (vm.query.page - 1) * vm.query.limit">
+                        <td>{{user.username}}</td>
+                        <td>{{user.email}}</td>
+                        <td>{{user.gender}}</td>
+                        <td>{{user.location}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </md-data-table-container>
+        <md-data-table-pagination md-limit="vm.query.limit" md-page="vm.query.page" md-total="{{vm.users.length}}"></md-data-table-pagination>
+    </md-card>
+</md-content>

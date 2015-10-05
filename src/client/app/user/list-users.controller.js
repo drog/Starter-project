@@ -11,7 +11,7 @@
     function UserListController(user) {
         var vm = this;
         vm.users = [];
-        getData();
+        activate();
 
         vm.selected = [];
 
@@ -23,10 +23,10 @@
           };
 
 
-        function getData(){
-            user.getUsers().error(function(error) {
-            }).then(function(res) {
-                angular.copy(res.data, vm.users);
+        function activate(){
+            return user.getUsers().then(function(response) {
+                vm.users  = response.data;
+                return vm.users;
 
             });
         }

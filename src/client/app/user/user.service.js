@@ -17,31 +17,19 @@
         };
 
         function getProfile() {
-            return $http.get('/api/me').success(function(data) {
-
-            });
+            return $http.get('/api/me');
         }
 
         function updateProfile(user) {
-            return $http.put('/api/update_profile', user).success(function(data) {
-
-            });
+            return $http.put('/api/update_profile', user);
         }
 
         function changePassword(user) {
-            return $http.put('/api/change_password', user).success(function(data) {
-
-            });
-
-
+            return $http.put('/api/change_password', user);
         }
 
         function getUsers() {
-            return $http.get('/api/users').success(function(data) {
-
-            });
-
-
+            return $http.get('/api/users');
         }
 
     }

@@ -22,7 +22,7 @@ $ npm install && bower install
 $ gulp serve-dev
 
 # Start the server in Prodcution
-$ gulp serve-build
+$ PORT=3000 gulp serve-build --nosync
 
 ```
 

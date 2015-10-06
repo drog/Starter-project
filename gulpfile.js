@@ -135,42 +135,6 @@ gulp.task('inject', ['wiredep', 'styles', 'templatecache'], function() {
         .pipe(gulp.dest(config.client));
 });
 
-/**
- * Run the spec runner
- * @return {Stream}
- */
-gulp.task('serve-specs', ['build-specs'], function(done) {
-    log('run the spec runner');
-    serve(true /* isDev */, true /* specRunner */);
-    done();
-});
-
-/**
- * Inject all the spec files into the specs.html
- * @return {Stream}
- */
-gulp.task('build-specs', ['templatecache'], function(done) {
-    log('building the spec runner');
-
-    var wiredep = require('wiredep').stream;
-    var templateCache = config.temp + config.templateCache.file;
-    var options = config.getWiredepDefaultOptions();
-    var specs = config.specs;
-
-    if (args.startServers) {
-        specs = [].concat(specs, config.serverIntegrationSpecs);
-    }
-    options.devDependencies = true;
-
-    return gulp
-        .src(config.specRunner)
-        .pipe(wiredep(options))
-        .pipe(inject(config.js, '', config.jsOrder))
-        .pipe(inject(config.specHelpers, 'spechelpers'))
-        .pipe(inject(specs, 'specs', ['**/*']))
-        .pipe(inject(templateCache, 'templates'))
-        .pipe(gulp.dest(config.client));
-});
 
 /**
  * Build everything
@@ -394,9 +358,8 @@ function orderSrc (src, order) {
  * --debug-brk or --debug
  * --nosync
  * @param  {Boolean} isDev - dev or build mode
- * @param  {Boolean} specRunner - server spec runner html
  */
-function serve(isDev, specRunner) {
+function serve(isDev) {
     var debugMode = '--debug';
     var nodeOptions = getNodeOptions(isDev);
 
@@ -417,7 +380,7 @@ function serve(isDev, specRunner) {
         })
         .on('start', function () {
             log('*** nodemon started');
-            startBrowserSync(isDev, specRunner);
+            startBrowserSync(isDev);
         })
         .on('crash', function () {
             log('*** nodemon crashed: script crashed for some reason');
@@ -450,7 +413,7 @@ function getNodeOptions(isDev) {
  * Start BrowserSync
  * --nosync will avoid browserSync
  */
-function startBrowserSync(isDev, specRunner) {
+function startBrowserSync(isDev) {
     if (args.nosync || browserSync.active) {
         return;
     }
@@ -488,9 +451,6 @@ function startBrowserSync(isDev, specRunner) {
         notify: true,
         reloadDelay: 0 //1000
     } ;
-    if (specRunner) {
-        options.startPath = config.specRunnerFile;
-    }
 
     browserSync(options);
 }

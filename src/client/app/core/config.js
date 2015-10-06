@@ -29,14 +29,20 @@
 
     core.run(configAuth);
 
-    configAuth.$inject = ['$rootScope', '$state', 'auth'];
+    configAuth.$inject = ['$rootScope', '$state', 'auth', '$mdToast'];
 
-    function configAuth($rootScope, $state, auth) {
+    function configAuth($rootScope, $state, auth, $mdToast) {
         $rootScope.$on('$stateChangeStart', function(e, to) {
             if (to.data && to.data.requiresLogin) {
                 if (!auth.isLoggedIn()) {
                     e.preventDefault();
                     $state.go('login');
+                    $mdToast.show(
+                        $mdToast.simple()
+                        .content('Required Login')
+                        .position('right')
+                        .hideDelay(3000)
+                    );
                 }
             }
         });

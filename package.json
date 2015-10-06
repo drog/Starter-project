@@ -18,7 +18,7 @@
         "body-parser": "^1.8.2",
         "compression": "^1.5.2",
         "crypto": "0.0.3",
-        "express": "^4.9.3",
+        "express": "^4.13.3",
         "express-jwt": "^3.0.1",
         "fs": "0.0.2",
         "jsonwebtoken": "^5.0.5",

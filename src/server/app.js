@@ -37,7 +37,7 @@ app.use(compression({
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
-app.use(logger('dev'));
+
 
 app.use(passport.initialize());
 app.use('/api', routes);
@@ -59,6 +59,9 @@ switch (environment){
         break;
     default:
         console.log('** DEV **');
+
+        app.use(logger('dev'));
+
         app.use(express.static('./src/client/'));
         app.use(express.static('./'));
         app.use(express.static('./tmp'));

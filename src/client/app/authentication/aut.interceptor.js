@@ -3,7 +3,7 @@
 
     angular
         .module('app.auth')
-        .factory('authInterceptor', function($rootScope, $q, $window) {
+        .factory('authInterceptor', function($q, $window) {
             return {
                 request: function(config) {
                     config.headers = config.headers || {};
@@ -14,7 +14,6 @@
                 },
                 response: function(response) {
                     if (response.status === 401) {
-                        alert("asd "+response.status);
                         $window.localStorage.removeItem('token');
                     }
                     return response || $q.when(response);

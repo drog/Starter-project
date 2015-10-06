@@ -1,4 +1,4 @@
-# Starter project [![Dependency Status](https://david-dm.org/drog/Starter-project/status.svg?style=flat)](https://david-dm.org/drog/Starter-project) [![Build Status](https://travis-ci.org/drog/Starter-project.svg?branch=master)](https://travis-ci.org/drog/Starter-project)
+# Starter project [![Dependency Status](https://david-dm.org/drog/Starter-project/status.svg?style=flat)](https://david-dm.org/drog/Starter-project) [![Build Status](https://travis-ci.org/drog/Starter-project.svg?branch=master)](https://travis-ci.org/drog/Starter-project) <a href="https://codeclimate.com/github/drog/Starter-project"><img src="https://codeclimate.com/github/drog/Starter-project/badges/gpa.svg" /></a>
 
 **Live Demo**: http://104.236.49.178:3000/
 

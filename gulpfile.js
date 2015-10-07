@@ -469,16 +469,6 @@ function bytediffFormatter(data) {
 }
 
 /**
- * Log an error message and emit the end of a task
- */
-//function errorLogger(error) {
-//    log('*** Start of Error ***');
-//    log(error);
-//    log('*** End of Error ***');
-//    this.emit('end');
-//}
-
-/**
  * Format a number as a percentage
  * @param  {Number} num       Number to format as a percent
  * @param  {Number} precision Precision of the decimal

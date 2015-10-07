@@ -24,13 +24,16 @@ $ gulp serve-dev
 # Start the server in Prodcution
 $ PORT=3000 gulp serve-build --nosync
 
+#or with forever
+
+$ PORT=3000 forever start gulp serve-build --nosync
+
 ```
 
 
 ## Some Screenshoots
 <img src="http://i.imgur.com/smqqiuv.png" alt="login" />
 <img src="http://i.imgur.com/0mRHcha.png" alt="register" />
-
 <img src="http://i.imgur.com/OK6byJl.png" alt="angular table" />
 
 ## Change Theme

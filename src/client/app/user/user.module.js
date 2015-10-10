@@ -2,7 +2,7 @@
     'use strict';
 
     angular.module('app.user', ['app.core'])
-        .config(function($stateProvider) {
+        .config(function($stateProvider, USER_ROLES) {
             $stateProvider.state('user', {
                 url: '/user',
                 parent: 'navbar',
@@ -16,7 +16,7 @@
                 controller: 'UserListController',
                 controllerAs: 'vm',
                 data: {
-                    requiresLogin: true
+                    authorizedRoles: [USER_ROLES.user]
                 }
             });
         });

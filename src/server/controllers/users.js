@@ -58,6 +58,7 @@ exports.updateProfile = function (req, res, next) {
   //user.email = req.body.email;
   user.gender = req.body.gender;
   user.location = req.body.location;
+  user.updatedAt = Date.now;
 
   // save the user
   user.save(function(err) {
@@ -96,7 +97,7 @@ exports.getUsers = function (req, res, next) {
     if(err){ return next(err); }
 
     return res.json(users);
-  }).select('username  email gender location');
+  });
 
 };
 

@@ -10,60 +10,75 @@
     /* @ngInject */
     function auth($http, $window) {
         var auth = {
-            saveToken : saveToken,
-            getToken : getToken,
-            isLoggedIn : isLoggedIn,
-            currentUser : currentUser,
-            register :register,
-            logIn : logIn,
-            logOut :logOut
+            saveToken: saveToken,
+            getToken: getToken,
+            isLoggedIn: isLoggedIn,
+            currentUser: currentUser,
+            register: register,
+            logIn: logIn,
+            logOut: logOut,
+            checkRoles: checkRoles
         };
 
         return auth;
 
-        function saveToken(token){
-          $window.localStorage['token'] = token;
+        function saveToken(token) {
+            $window.localStorage['token'] = token;
         }
 
-        function getToken(){
-          return $window.localStorage['token'];
+        function getToken() {
+            return $window.localStorage['token'];
         }
 
-        function isLoggedIn(){
-          var token = auth.getToken();
+        function isLoggedIn() {
+            var token = auth.getToken();
 
-          if(token){
-            var payload = JSON.parse($window.atob(token.split('.')[1]));
+            if (token) {
+                var payload = JSON.parse($window.atob(token.split('.')[1]));
 
-            return payload.exp > Date.now() / 1000;
-          } else {
-            return false;
-          }
+                return payload.exp > Date.now() / 1000;
+            } else {
+                return false;
+            }
         }
 
-        function currentUser(){
-          if(auth.isLoggedIn()){
+        function currentUser() {
+            if (auth.isLoggedIn()) {
+                var token = auth.getToken();
+                var payload = JSON.parse($window.atob(token.split('.')[1]));
+
+                return payload.username;
+            }
+        }
+
+        function register(user) {
+            return $http.post('/api/register', user).success(function(data) {
+                auth.saveToken(data.token);
+            });
+        }
+
+        function logIn(user) {
+            return $http.post('/api/login', user).success(function(data) {
+                auth.saveToken(data.token);
+            });
+        }
+
+        function logOut() {
+            $window.localStorage.removeItem('token');
+        }
+
+        function checkRoles(roles) {
             var token = auth.getToken();
             var payload = JSON.parse($window.atob(token.split('.')[1]));
-
-            return payload.username;
-          }
-        }
-
-        function register(user){
-          return $http.post('/api/register', user).success(function(data){
-            auth.saveToken(data.token);
-          });
-        }
-
-        function logIn(user){
-          return $http.post('/api/login', user).success(function(data){
-            auth.saveToken(data.token);
-          });
-        }
-
-        function logOut(){
-          $window.localStorage.removeItem('token');
+            var userRoles = payload.roles;
+            for (var userRoleIndex in userRoles) {
+                for (var roleIndex in roles) {
+                    if (roles[roleIndex] === userRoles[userRoleIndex]) {
+                        return true;
+                    }
+                }
+            }
+            return false;
         }
 
 

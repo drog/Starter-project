@@ -33,13 +33,22 @@
 
     function configAuth($rootScope, $state, auth, $mdToast) {
         $rootScope.$on('$stateChangeStart', function(e, to) {
-            if (to.data && to.data.requiresLogin) {
+            if (to.data && to.data.authorizedRoles && to.data.authorizedRoles.length > 0) {
                 if (!auth.isLoggedIn()) {
                     e.preventDefault();
                     $state.go('login');
                     $mdToast.show(
                         $mdToast.simple()
                         .content('Required Login')
+                        .position('right')
+                        .hideDelay(3000)
+                    );
+                }else if (!auth.checkRoles(to.data.authorizedRoles)) {
+                    e.preventDefault();
+                    $state.go('home');
+                    $mdToast.show(
+                        $mdToast.simple()
+                        .content('not authorized')
                         .position('right')
                         .hideDelay(3000)
                     );

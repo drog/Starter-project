@@ -14,6 +14,7 @@
                         <th order-by="email" name="email"></th>
                         <th order-by="gender" name="gender"></th>
                         <th order-by="location" name="location"></th>
+                        <th order-by="createdAt" name="created at"></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -22,6 +23,7 @@
                         <td>{{user.email}}</td>
                         <td>{{user.gender}}</td>
                         <td>{{user.location}}</td>
+                        <td>{{user.createdAt | date : format : timezone}}</td>
                     </tr>
                 </tbody>
             </table>
